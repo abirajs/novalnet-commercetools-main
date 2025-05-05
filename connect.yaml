@@ -17,5 +17,8 @@ deployAs:
       securedConfiguration:
         - key: ADYEN_INTEGRATION_CONFIG
           description: Escaped JSON object, for more details visit (https://github.com/commercetools/commercetools-adyen-integration/blob/master/notification/docs/HowToRun.md#environment-variable)
-      
-  
+          
+paymentProvider:
+  supportedIntegrationModes:
+    - "storefront"
+    - "admin-order"          
