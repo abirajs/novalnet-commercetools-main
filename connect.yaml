@@ -1,0 +1,74 @@
+deployAs:
+  - name: enabler
+    applicationType: assets
+  - name: processor
+    applicationType: service
+    endpoint: /
+    configuration:
+      standardConfiguration:
+        - key: CTP_PROJECT_KEY
+          description: commercetools project key
+          required: true
+        - key: CTP_AUTH_URL
+          description: commercetools Auth URL
+          required: true
+          default: https://auth.europe-west1.gcp.commercetools.com
+        - key: CTP_API_URL
+          description: commercetools API URL
+          required: true
+          default: https://api.europe-west1.gcp.commercetools.com
+        - key: CTP_SESSION_URL
+          description: Session API URL
+          required: true
+          default: https://session.europe-west1.gcp.commercetools.com
+        - key: CTP_CLIENT_ID
+          description: commercetools client ID with manage_payments, manage_orders, view_sessions, view_api_clients, manage_checkout_payment_intents & introspect_oauth_tokens scopes
+          required: true
+        - key: ADYEN_ENVIRONMENT
+          description: Adyen environment
+          required: true
+          default: TEST
+        - key: ADYEN_MERCHANT_ACCOUNT
+          description: Adyen merchant account
+          required: true
+        - key: ADYEN_CLIENT_KEY
+          description: Adyen client key
+          required: true
+        - key: ADYEN_LIVE_URL_PREFIX
+          description: Adyen live URL prefix
+        - key: MERCHANT_RETURN_URL
+          description: Merchant return URL
+          required: true
+        - key: CTP_JWKS_URL
+          description: JWKs url (example - https://mc-api.europe-west1.gcp.commercetools.com/.well-known/jwks.json)
+          required: true
+          default: https://mc-api.europe-west1.gcp.commercetools.com/.well-known/jwks.json
+        - key: CTP_JWT_ISSUER
+          description: JWT Issuer for jwt validation (example - https://mc-api.europe-west1.gcp.commercetools.com)
+          required: true
+          default: https://mc-api.europe-west1.gcp.commercetools.com
+        - key: ADYEN_APPLEPAY_OWN_MERCHANT_ID
+          description: Apple merchant ID. Needed when using own certificate
+          required: false
+        - key: ADYEN_APPLEPAY_OWN_MERCHANT_DOMAIN
+          description: Apple merchant domain. Needed when using own certificate
+          required: false
+        - key: ADYEN_APPLEPAY_OWN_DISPLAY_NAME
+          description: Apple display name. Needed when using own certificate
+          required: false
+        - key: ADYEN_SHOPPER_STATEMENT
+          description: The text to be shown on the shopper's bank statement. We recommend sending a maximum of 22 characters, otherwise banks might truncate the string
+          required: false
+      securedConfiguration:
+        - key: CTP_CLIENT_SECRET
+          description: commercetools client secret
+          required: true
+        - key: ADYEN_API_KEY
+          description: Adyen API key
+          required: true
+        - key: ADYEN_NOTIFICATION_HMAC_KEY
+          description: Adyen HMAC key (Please use the dummy placeholder value during the installation process. Once the webhook configuration in Adyen is complete and HMAC known, replace this placeholder with the actual value and redeploy.)
+          required: true
+        - key: ADYEN_APPLEPAY_OWN_CERTIFICATE
+          description: Apple Pay own certificate in base 64 format
+          required: false
